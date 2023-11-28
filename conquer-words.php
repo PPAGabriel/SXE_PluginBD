@@ -13,7 +13,14 @@ Author URI: http://gabriel_dam2/
 */
 
 /*
- * $swearingWords= array("Mierda",
+//Cambiar palabras malsonantes por otras más suaves en el contenido
+function renym_wordpress_typo_fix( $text ) {
+    global $swearingWords, $nonSwearingWords;
+    return str_replace($swearingWords, $nonSwearingWords, $text);
+}
+ */
+
+$swearingWords= array("Mierda",
     "Coño",
     "Joder",
     "Gilipollas",
@@ -30,13 +37,6 @@ $nonSwearingWords= array("Miercoles",
     "Pumba",
     "Pancho"
 );
-
-//Cambiar palabras malsonantes por otras más suaves en el contenido
-function renym_wordpress_typo_fix( $text ) {
-    global $swearingWords, $nonSwearingWords;
-    return str_replace($swearingWords, $nonSwearingWords, $text);
-}
- */
 
 //Cambiar palabras malsonantes por otras más suaves en el contenido usando la base de datos
 function renym_wordpress_typo_fix( $text ) {
