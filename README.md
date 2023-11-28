@@ -33,11 +33,11 @@ add_filter( 'the_content', 'renym_wordpress_typo_fix' );
 
 # ACTUALIZACIÓN: Uso de la Base De Datos
 
-Para mejorar la aplicación, la lista de palabras malsonantes y positivas se guardan en una base de datos. Para esto, se crean dos tablas en la base de datos, una para las palabras malsonantes y otra para las palabras positivas. Estas tablas tienen dos columnas, una para el id y otra para la palabra. Luego, se crean dos funciones, una para obtener las palabras malsonantes y otra para obtener las palabras positivas. Estas funciones se conectan a la base de datos y obtienen las palabras de las tablas. Luego, se crean dos arrays, uno para las palabras malsonantes y otro para las palabras positivas. Estos arrays se llenan con las palabras obtenidas de la base de datos. Finalmente, se utiliza la función "add_filter" de WP para agregar un filtro al contenido del post o la página. Este filtro utiliza la función "renym_wordpress_typo_fix" que toma el contenido del post o la página y lo analiza para determinar si el contenido es positivo o negativo.
+Para mejorar la aplicación, la lista de palabras malsonantes y positivas se guardará en una base de datos. Para esto, se utilizará la base de datos de WordPress.
 
-## Creación de las tablas en la base de datos
+## Creación de la tabla en la base de datos
 
-Para crear las tablas en la base de datos, se utiliza la función "dbDelta" de WP. Esta función toma un parámetro, que es la consulta SQL que queremos ejecutar. En este caso, se ejecutan dos consultas SQL, una para crear la tabla de palabras malsonantes y otra para crear la tabla de palabras positivas.
+Para crear la tabla en la base de datos, se utiliza la función "dbDelta" de WP. Esta función toma un parámetro, que es la consulta SQL que queremos ejecutar.
 
 ```php
 function createTable(){
@@ -69,7 +69,7 @@ El uso de **"add_action"** es para que la función se ejecute cuando se cargue e
 
 ## Inserción de datos en la base de datos
 
-Para insertar datos en la base de datos, se utiliza la función "insert" de WP. Esta función toma dos parámetros, el primero es el nombre de la tabla en la que queremos insertar los datos y el segundo es un array asociativo con los datos que queremos insertar. En este caso, se insertan los datos en la tabla de palabras malsonantes y en la tabla de palabras positivas.
+Para insertar datos en la base de datos, se utiliza la función "insert" de WP. Esta función toma dos parámetros, el primero es el nombre de la tabla (o bien columna) en la que queremos insertar los datos y el segundo es un array asociativo con los datos que queremos insertar. En este caso, se insertan los datos en la columna de palabras malsonantes y en la columna de palabras positivas.
 
 ```php
 function insertData(){
@@ -127,4 +127,4 @@ Se realiza un "for each" recorriendo una a una las filas con el contenido que no
 
 De esta manera, podemos utilizar las palabras malsonantes y positivas que se encuentran en la base de datos para analizar el contenido del post o la página y determinar si el contenido es positivo o negativo!
 
-Dale 10 a esta actualización si te gustó! :smile:
+## Dale 10 a esta actualización si te gustó! :smile:
